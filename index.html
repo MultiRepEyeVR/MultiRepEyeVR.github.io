@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Through the Eyes of Emotion — A Multi-faceted Eye Tracking Dataset for Emotion Recognition in VR</title>
+<meta name="description" content="A multi-faceted eye tracking dataset for emotion recognition in virtual reality: 120 fps periocular video, 240 Hz gaze, pupil diameter, scene video, IMU and audio from 26 participants. Published at ACM IMWUT 2025.">
+<link rel="canonical" href="https://multirepeyevr.github.io/">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta property="og:title" content="Through the Eyes of Emotion — VR Eye Tracking Dataset">
+<meta property="og:description" content="A multi-faceted eye tracking dataset for emotion recognition in virtual reality (ACM IMWUT 2025). Access is granted to researchers on request.">
+<meta property="og:image" content="https://multirepeyevr.github.io/assets/data_collection_setup.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Serif:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<!--
+  TODO(tony): the two Google Form links in the "Dataset access" section are
+  placeholders. Search this file for the prefix "REPLACE_WITH_" (two href
+  values: request form, agreement form) and paste the real URLs.
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#abstract">Skip to content</a>
+
+<nav class="topnav">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">MultiRepEyeVR</a>
+    <div class="nav-links">
+      <a href="#abstract">Abstract</a>
+      <a href="#dataset">Dataset</a>
+      <a href="#examples">Examples</a>
+      <a href="#citation">Citation</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#access">Request access</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <!-- ============================ Hero ============================ -->
+  <header class="hero">
+    <p class="venue">ACM IMWUT · Vol. 9, No. 3, Article 143 · September 2025</p>
+    <h1>Through the Eyes of Emotion: A&nbsp;Multi-faceted Eye Tracking Dataset for Emotion Recognition in Virtual&nbsp;Reality</h1>
+    <p class="authors">
+      <a href="https://tonyyunyang.github.io">Tongyun Yang</a><sup>†1</sup>,
+      <span>Bishwas Regmi</span><sup>†1</sup>,
+      <span>Lingyu Du</span><sup>1</sup>,
+      <a href="https://www.perceptualui.org/people/bulling/">Andreas Bulling</a><sup>2</sup>,
+      <a href="https://www.ccmitss.com/zhang">Xucong Zhang</a><sup>1</sup>,
+      <a href="https://guohao.netlify.app/">Guohao Lan</a><sup>1</sup>
+    </p>
+    <p class="affiliations"><sup>1</sup>Delft University of Technology &nbsp;·&nbsp; <sup>2</sup>University of Stuttgart &nbsp;·&nbsp; <sup>†</sup>equal contribution</p>
+
+    <div class="button-row">
+      <a class="btn btn-primary" href="#access">Request dataset access</a>
+      <a class="btn" href="https://doi.org/10.1145/3749545">Paper</a>
+      <a class="btn" href="https://dl.acm.org/doi/pdf/10.1145/3749545">PDF</a>
+      <a class="btn" href="https://github.com/MultiRepEyeVR/Through-the-Eyes-of-Emotion">Code &amp; tools</a>
+      <a class="btn" href="#citation">BibTeX</a>
+    </div>
+
+    <ul class="stats" aria-label="Dataset at a glance">
+      <li><b>26</b> participants</li>
+      <li><b>28</b> video stimuli</li>
+      <li><b>7</b> emotions</li>
+      <li><b>120 fps</b> periocular video</li>
+      <li><b>240 Hz</b> gaze</li>
+      <li><b>120 Hz</b> pupil diameter</li>
+    </ul>
+  </header>
+
+  <figure class="teaser">
+    <img src="assets/data_collection_setup.jpg" alt="Three-panel figure: (a) Pupil Labs eye-tracking add-on inside an HTC VIVE Pro headset, (b) a participant seated wearing the headset during data collection, (c) the participant's field of view inside the virtual environment.">
+    <figcaption>(a) Pupil Labs add-on eye tracker on an HTC VIVE Pro; (b) a participant during data collection; (c) the participant's field of view in the virtual environment.</figcaption>
+  </figure>
+
+  <!-- ============================ Abstract ============================ -->
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>Virtual Reality (VR) is transforming cognitive and psychological research by enabling immersive simulations that elicit authentic emotional responses. The high demand for VR-based emotion recognition is also evident in fields such as mental healthcare, education, and entertainment, where understanding users' emotional states can enhance user experience and system effectiveness. However, the lack of comprehensive datasets hinders progress in VR-based emotion recognition. In this paper, we present a comprehensive, multi-faceted eye-tracking dataset collected from 26 participants using 28 emotional video stimuli rendered in a custom virtual environment. Our dataset is the first to incorporate high-frame-rate periocular videos, capturing subtle motions, such as micro-expressions and eyebrow shifts, which are critical for emotion analysis. Additionally, it includes high-frequency eye-tracking data, offering gaze direction and pupil dynamics at four times the frequency of existing datasets. Our dataset is also unique in providing emotion annotations according to Ekman's emotion model and, as such, offering experiments impossible using existing datasets. Our benchmark evaluations show that fusing the multi-faceted eye-tracking signals in our dataset significantly improves emotion recognition accuracy. As such, our work has the potential to significantly accelerate and enable entirely new research on emotion-aware VR applications.</p>
+  </section>
+
+  <!-- ============================ Dataset ============================ -->
+  <section id="dataset">
+    <h2>What's in the dataset</h2>
+    <p>Each of the 26 participants watched 14 emotional film clips (two per emotion, drawn from a 28-clip stimulus pool validated by <a href="https://www.tandfonline.com/doi/full/10.1080/00224545.2020.1758016">Zupan&nbsp;et&nbsp;al.</a>) inside a custom Unity VR environment on an HTC VIVE Pro with a Pupil Labs eye-tracking add-on. Every session is recorded across synchronized modalities:</p>
+    <div class="modality-grid">
+      <div class="modality"><span class="mod-name">Periocular video</span><span class="mod-spec">binocular near-eye cameras, 120 fps, 400 × 400 px</span></div>
+      <div class="modality"><span class="mod-name">Gaze direction</span><span class="mod-spec">2D gaze estimates at 240 Hz</span></div>
+      <div class="modality"><span class="mod-name">Pupil diameter</span><span class="mod-spec">measurements at 120 Hz</span></div>
+      <div class="modality"><span class="mod-name">Scene video</span><span class="mod-spec">participant's field of view in VR</span></div>
+      <div class="modality"><span class="mod-name">Head motion</span><span class="mod-spec">IMU signals from the headset</span></div>
+      <div class="modality"><span class="mod-name">Audio</span><span class="mod-spec">microphone recordings per session</span></div>
+      <div class="modality"><span class="mod-name">Emotion labels</span><span class="mod-spec">Ekman's seven basic emotions with segment-based, self-reported intensity ratings</span></div>
+      <div class="modality"><span class="mod-name">Timing annotations</span><span class="mod-spec">per-participant timestamps of reported emotion elicitation</span></div>
+    </div>
+    <p>The dataset ships in both raw and processed (training-ready HDF5) form, together with the open-source Unity recording interface, the annotation toolchain, and reference preprocessing and benchmark code. File-level documentation lives in the <a href="https://github.com/MultiRepEyeVR/Through-the-Eyes-of-Emotion">GitHub repository</a>.</p>
+  </section>
+
+  <!-- ============================ Examples ============================ -->
+  <section id="examples">
+    <h2>Example recordings</h2>
+    <p>Field of view with the gaze estimate overlaid on the stimulus, alongside the two periocular recordings with pupil measurements overlaid.</p>
+    <button class="btn video-toggle" type="button" id="examples-toggle" aria-live="polite">Pause examples</button>
+
+    <div class="example-row">
+      <span class="emotion-tag">Disgust</span>
+      <div class="example-videos">
+        <video class="v-world" muted loop playsinline preload="metadata" src="assets/examples/disgust_world.mp4" aria-label="Field of view during a disgust stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/disgust_eye0.mp4" aria-label="Eye camera 0 during a disgust stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/disgust_eye1.mp4" aria-label="Eye camera 1 during a disgust stimulus"></video>
+      </div>
+    </div>
+    <div class="example-row">
+      <span class="emotion-tag">Fear</span>
+      <div class="example-videos">
+        <video class="v-world" muted loop playsinline preload="metadata" src="assets/examples/fear_world.mp4" aria-label="Field of view during a fear stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/fear_eye0.mp4" aria-label="Eye camera 0 during a fear stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/fear_eye1.mp4" aria-label="Eye camera 1 during a fear stimulus"></video>
+      </div>
+    </div>
+    <div class="example-row">
+      <span class="emotion-tag">Surprise</span>
+      <div class="example-videos">
+        <video class="v-world" muted loop playsinline preload="metadata" src="assets/examples/surprise_world.mp4" aria-label="Field of view during a surprise stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/surprise_eye0.mp4" aria-label="Eye camera 0 during a surprise stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/surprise_eye1.mp4" aria-label="Eye camera 1 during a surprise stimulus"></video>
+      </div>
+    </div>
+    <div class="example-row">
+      <span class="emotion-tag">Anger</span>
+      <div class="example-videos">
+        <video class="v-world" muted loop playsinline preload="metadata" src="assets/examples/anger_world.mp4" aria-label="Field of view during an anger stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/anger_eye0.mp4" aria-label="Eye camera 0 during an anger stimulus"></video>
+        <video class="v-eye" muted loop playsinline preload="metadata" src="assets/examples/anger_eye1.mp4" aria-label="Eye camera 1 during an anger stimulus"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ Access ============================ -->
+  <section id="access">
+    <h2>Dataset access</h2>
+    <p>The dataset contains recordings of human participants, so it is not available for direct download. Access is granted to researchers after a short review. Three steps:</p>
+
+    <ol class="access-steps">
+      <li>
+        <div class="step-body">
+          <h3>Complete the Dataset Access Request Form</h3>
+          <p>Tell us who you are, your institution, and how you plan to use the data.</p>
+          <a class="btn btn-primary" href="REPLACE_WITH_REQUEST_FORM_URL">Open the request form</a>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <h3>Sign the Data Use and Confidentiality Agreement</h3>
+          <p>The agreement covers research-only use, no redistribution, and no attempts to identify participants.</p>
+          <a class="btn btn-primary" href="REPLACE_WITH_AGREEMENT_FORM_URL">Open the agreement</a>
+        </div>
+      </li>
+      <li>
+        <div class="step-body">
+          <h3>Receive the download link by email</h3>
+          <p>We review each request and email the download instructions to your institutional address once your request is approved.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="access-note">
+      <p><b>Please use an institutional email address</b> — the download link is sent there after review. The dataset is provided for non-commercial research and educational purposes only, under the terms of the agreement.</p>
+    </div>
+  </section>
+
+  <!-- ============================ License ============================ -->
+  <section id="license">
+    <h2>License</h2>
+    <p>The <a href="https://doi.org/10.1145/3749545">paper</a> is published under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a> license and the <a href="https://github.com/MultiRepEyeVR/Through-the-Eyes-of-Emotion">code</a> under the MIT license. The dataset itself is distributed under the terms of the Data Use and Confidentiality Agreement above.</p>
+  </section>
+
+  <!-- ============================ Citation ============================ -->
+  <section id="citation">
+    <h2>Citation</h2>
+    <p>If the dataset or tools help your research, please cite:</p>
+    <div class="bibtex-wrap">
+      <button class="copy-btn" type="button" data-copy-target="bibtex">Copy</button>
+      <pre id="bibtex"><code>@article{yang2025VREyeEmotion,
+  title     = {Through the Eyes of Emotion: A Multi-faceted Eye Tracking Dataset
+               for Emotion Recognition in Virtual Reality},
+  author    = {Yang, Tongyun and Regmi, Bishwas and Du, Lingyu and
+               Bulling, Andreas and Zhang, Xucong and Lan, Guohao},
+  journal   = {Proceedings of the ACM on Interactive, Mobile, Wearable and
+               Ubiquitous Technologies},
+  volume    = {9},
+  number    = {3},
+  articleno = {143},
+  year      = {2025},
+  publisher = {Association for Computing Machinery},
+  doi       = {10.1145/3749545}
+}</code></pre>
+    </div>
+  </section>
+
+  <!-- ============================ Contact ============================ -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Questions about the dataset, the tools, or an access request:</p>
+    <ul class="contact-list">
+      <li><a href="https://tonyyunyang.github.io">Tongyun Yang</a> — <span class="email">tongyunyang [at] outlook.com</span></li>
+      <li><a href="https://guohao.netlify.app/">Guohao Lan</a> — <span class="email">g.lan [at] tudelft.nl</span></li>
+    </ul>
+  </section>
+
+  <!-- ============================ Acknowledgements ============================ -->
+  <section id="acknowledgements">
+    <h2>Acknowledgements</h2>
+    <p>This work was supported in part by the Meta Research Award, SURF Research Cloud grant EINF-6360, and the EU's Horizon Europe HarmonicAI project under the HORIZON MSCA-2022-SE-01 scheme, grant agreement 101131117. The contents of this page do not necessarily reflect the positions or policies of the funding agencies.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>MultiRepEyeVR · Delft University of Technology · University of Stuttgart</p>
+</footer>
+
+<script>
+  // Copy BibTeX
+  document.querySelectorAll('.copy-btn').forEach(function (btn) {
+    btn.setAttribute('aria-live', 'polite');
+    btn.addEventListener('click', function () {
+      var target = document.getElementById(btn.dataset.copyTarget);
+      navigator.clipboard.writeText(target.textContent).then(function () {
+        btn.textContent = 'Copied ✓';
+      }, function () {
+        btn.textContent = 'Copy failed — select the text instead';
+      }).then(function () {
+        setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+      });
+    });
+  });
+
+  // Example videos: play only while near the viewport, with a global
+  // pause/play toggle. Reduced-motion users start paused with controls.
+  (function () {
+    var videos = Array.prototype.slice.call(document.querySelectorAll('#examples video'));
+    var toggle = document.getElementById('examples-toggle');
+    var paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function nearViewport(v) {
+      var r = v.getBoundingClientRect();
+      return r.bottom > -200 && r.top < window.innerHeight + 200;
+    }
+    function apply() {
+      videos.forEach(function (v) {
+        if (!paused && nearViewport(v)) { v.play(); } else { v.pause(); }
+      });
+      toggle.textContent = paused ? 'Play examples' : 'Pause examples';
+    }
+    if (paused) {
+      videos.forEach(function (v) { v.setAttribute('controls', ''); });
+    }
+    toggle.addEventListener('click', function () { paused = !paused; apply(); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (paused) { return; }
+          if (e.isIntersecting) { e.target.play(); } else { e.target.pause(); }
+        });
+      }, { rootMargin: '200px' });
+      videos.forEach(function (v) { io.observe(v); });
+    }
+    apply();
+  })();
+</script>
+
+</body>
+</html>
