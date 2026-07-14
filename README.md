@@ -4,12 +4,12 @@ Project page for **Through the Eyes of Emotion: A Multi-faceted Eye Tracking
 Dataset for Emotion Recognition in Virtual Reality** (ACM IMWUT 2025), served
 by GitHub Pages at <https://multirepeyevr.github.io/>.
 
-## Linking the Google Forms
+## Dataset access flow
 
-Dataset access runs through two Google Forms. In `index.html`, search for the
-prefix `REPLACE_WITH_` — it marks two `href` values in the *Dataset access*
-section (the request form, then the agreement form). Paste the real links
-there and push.
+Access is gated: the *Dataset access* section links two Google Forms (access
+request + data use agreement); approved requesters receive the download link
+by email. The forms are managed from the MultiRepEyeVR Google account — edit
+them there, not here.
 
 ## Structure
 
