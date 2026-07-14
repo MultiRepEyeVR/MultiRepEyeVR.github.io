@@ -362,6 +362,8 @@ footer {
   #access { padding: 1.5rem 1.2rem 1.6rem; }
   /* keep the sticky bar one row tall: wordmark + Request access only */
   .nav-links a:not(.nav-cta) { display: none; }
+  .nav-inner { gap: 0.5rem; }
+  .wordmark { font-size: 0.78rem; }
 }
 @media (max-width: 480px) {
   .example-videos { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
